@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+nav {
+    padding-right: 100px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 60px;
+    padding-right: 50px;
+    font-size: 26px;
+}
+
+nav a:hover {
+    color: gray;
+}
+
+header {
+    display: flex;
+    height: 192px;
+    width: auto;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    padding-left: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 250px;
+}
+
+.TextInicio {
+    padding-top: 40px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.TextInicio h1 {
+    text-align: center;
+    font-size: 70px;
+}
+
+.TextInicio p {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 34px;
+}
+
+.slider-box {
+    width: 1300px;
+    height: auto;
+    margin: 50px auto 0;
+    overflow: hidden;
+}
+
+.slider-box ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: slide 16s infinite alternate ease-in-out;
+}
+
+.slider-box li {
+    width: 100%;
+    list-style: none;
+}
+
+.slider-box img {
+    width: 100%;
+    height: 750px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.titulo-servicio {
+    font-size: 40px;
+    padding-top: 100px;
+    padding-left: 100px;
+}
+
+.titulo-contacto {
+    font-size: 40px;
+    padding-top: 100px;
+    padding-left: 100px;
+}
+
+.container {
+    padding-top: 30px;
+    width: 93%;
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+}
+
+.card {
+    width: 100%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+}
+
+.card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    padding: 30px;
+    border-radius: 300px;
+
+}
+
+.card .contenido {
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 35px;
+}
+
+.card .contenido p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.card h2 {
+    padding: 10px;
+    text-align: center;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3%);
+}
+
+footer .smooth-scroll:hover {
+    color: gray;
+}
+
+@keyframes slide {
+
+    0%,
+    100% {
+        margin-left: 0%;
+    }
+
+    20% {
+        margin-left: 0%;
+    }
+
+    25% {
+        margin-left: -100%;
+    }
+
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    70% {
+        margin-left: -200%;
+    }
+
+    75% {
+        margin-left: -300%;
+    }
+
+    95% {
+        margin-left: -300%;
+    }
+}
+
+form {
+    padding-top: 60px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form div label {
+    display: inline-block;
+    width: 300px;
+    margin-right: 10px;
+    font-size: 23px;
+    text-align: end;
+    padding-right: 30px;
+    font-weight: 500;
+}
+
+form div input[type="text"],
+form div input[type="email"],
+form div input[type="password"],
+form div textarea {
+    width: 700px;
+    padding: 10px;
+    background-color: #D9D9D9;
+    border: none;
+    font-size: 20px;
+}
+
+form div textarea {
+    width: 700px;
+    padding: 8px;
+    resize: none;
+}
+
+.btn-enviar {
+    margin-left: 15%;
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    padding: 10px 50px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.btn-enviar:hover {
+    background-color: white;
+    color: black;
+}
+
+.btn-enviar:focus {
+    outline: none;
+    box-shadow: 0 0 5px white;
+}
+
+footer {
+    display: flex;
+    height: 300px;
+    width: auto;
+    background-color: black;
+    align-items: center;
+}
+
+.logo-footer {
+    height: 290px;
+    padding-left: 80px;
+}
+
+.enlaces-page {
+    padding-left: 20%;
+}
+
+.enlaces-page a {
+    text-decoration: none;
+    color: white;
+    font-weight: 60px;
+    padding-right: 60px;
+    font-size: 26px;
+}
+
+.redes-sociales a {
+    padding-right: 30px;
+}
+
+.redes-sociales {
+    margin-left: 100px;
+}
+
+/*----------------------------------*/
+.icono-wtspp {
+    position: fixed;
+    right: 20px;
+    bottom: 300px;
+    z-index: 999;
+    transition: bottom 0.3s;
+}
+
+.scrolled .icono-wtspp {
+    bottom: 60px;
+}
+
+/*------------SOBRE NOSOTROS------------*/
+.vision-mision {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin: 0 auto;
+    max-width: 80%;
+    padding-top: 50px;
+}
+
+.vision-mision .mision,
+.vision-mision .vision {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    /* Espacio entre la imagen y el texto */
+}
+
+.vision-mision .contenido-text-nosotros {
+    flex: 1;
+    font-size: 20px;
+
+
+    /* El contenido ocupa todo el espacio restante */
+}
+
+.vision-mision img {
+    border-radius: 100px;
+    width: 600px;
+    object-fit: cover;
+
+}
