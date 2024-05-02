@@ -9,41 +9,55 @@ body {
     background-color: #ffffff;
 }
 
-nav {
-    padding-right: 100px;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    font-weight: 60px;
-    padding-right: 50px;
-    font-size: 26px;
-}
-
+/*Cabecera*/
 nav a:hover {
     color: gray;
 }
 
+.container-header {
+    width: 100%;
+}
+
 header {
     display: flex;
-    height: 192px;
-    width: auto;
-    background-color: black;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    background-color: black;
 }
 
 .logo {
-    padding-left: 70px;
+    margin-left: 5%;
+    flex: 1;
     display: flex;
     align-items: center;
 }
 
 .logo img {
-    height: 250px;
+    max-width: 28%;
+    height: auto;
 }
 
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    padding: 0 30px;
+}
+
+#icon-menu {
+    display: none;
+}
+
+/*Fin Cabecera*/
 .TextInicio {
     padding-top: 40px;
     width: 80%;
@@ -254,35 +268,38 @@ form div textarea {
 
 footer {
     display: flex;
-    height: 300px;
-    width: auto;
-    background-color: black;
+    flex-direction: column;
     align-items: center;
+    padding: 20px;
+    background-color: black;
 }
 
 .logo-footer {
-    height: 290px;
-    padding-left: 80px;
+    height: auto;
+    width: 80%;
+    max-width: 300px;
+    margin-bottom: 20px;
 }
 
 .enlaces-page {
-    padding-left: 20%;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .enlaces-page a {
     text-decoration: none;
     color: white;
-    font-weight: 60px;
-    padding-right: 60px;
-    font-size: 26px;
-}
-
-.redes-sociales a {
-    padding-right: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 20px;
 }
 
 .redes-sociales {
-    margin-left: 100px;
+    text-align: center;
+}
+
+.redes-sociales a {
+    margin-right: 20px;
 }
 
 /*----------------------------------*/
@@ -313,20 +330,172 @@ footer {
     display: flex;
     align-items: center;
     gap: 50px;
-    /* Espacio entre la imagen y el texto */
 }
 
 .vision-mision .contenido-text-nosotros {
     flex: 1;
     font-size: 20px;
-
-
-    /* El contenido ocupa todo el espacio restante */
 }
 
 .vision-mision img {
     border-radius: 100px;
     width: 600px;
     object-fit: cover;
+}
 
+/* Responsive Design  - Adaptable a dosipositivos moviles*/
+
+@media screen and (max-width:1220px) {
+
+    .container-header header,
+    .conteiner-cover,
+    .container-footer footer {
+        max-width: 1200px;
+        padding: 0 20 px;
+    }
+}
+
+@media screen and (max-width:800px) {
+
+    /*Cabecera*/
+    .logo img {
+        max-width: 70%;
+        height: auto;
+    }
+
+    .logo,
+    nav {
+        flex: 1 0 100%;
+        justify-content: center;
+        padding: 10px 0;
+        flex-wrap: wrap;
+    }
+
+    nav {
+        order: -1;
+    }
+
+    nav a {
+        font-size: 18px;
+        padding: 10px;
+        font-weight: bold;
+    }
+
+    /*Fin Cabecera*/
+    .TextInicio h1 {
+        text-align: center;
+        font-size: 45px;
+    }
+
+    .TextInicio p {
+        padding-top: 50px;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .icono-wtspp {
+        position: fixed;
+        right: 20px;
+        bottom: 30px;
+        z-index: 999;
+        transition: bottom 0.3s;
+    }
+
+    /*Slider Multi Fotos*/
+    .slider-box {
+        width: 100%;
+        height: auto;
+        margin: 50px auto 0;
+        overflow: hidden;
+        margin: 10 10px;
+    }
+
+    .slider-box ul {
+        display: flex;
+        padding: 0;
+        width: 400%;
+        animation: slide 16s infinite alternate ease-in-out;
+    }
+
+    .slider-box li {
+        width: 25%;
+        list-style: none;
+    }
+
+    .slider-box img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 10px;
+
+    }
+
+    /* Fin Slider Multi Fotos*/
+
+    /*Mision Vision*/
+    .vision-mision .mision,
+    .vision-mision .vision {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .vision-mision .contenido-text-nosotros {
+        order: -1;
+        margin-top: 30px;
+    }
+
+    .vision-mision img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #nosotros {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    /*Fin Mision Vision*/
+    /*Cards*/
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding-left: 25px;
+    }
+
+    /*Fin Cards*/
+    /*Formulario*/
+    form div {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    form div label {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 5px;
+        font-size: 18px;
+        text-align: start;
+        padding-right: 0;
+    }
+
+    form div input[type="text"],
+    form div input[type="email"],
+    form div input[type="password"],
+    form div textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /*Fin Formulario*/
+    /*Icono Fixed Whatsapp*/
+    .icono-wtspp img {
+        width: 80px;
+        height: auto;
+    }
+
+    /*Fin Icono Fixed Whatsapp*/
 }
