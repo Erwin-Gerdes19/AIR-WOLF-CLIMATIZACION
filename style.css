@@ -401,6 +401,13 @@ footer {
         transition: bottom 0.3s;
     }
 
+    /*Titulo Servicios*/
+    .titulo-servicio {
+        font-size: 40px;
+        padding-top: 100px;
+        padding-left: 10%;
+    }
+
     /*Slider Multi Fotos*/
     .slider-box {
         width: 100%;
@@ -465,6 +472,12 @@ footer {
     }
 
     /*Fin Cards*/
+    .titulo-contacto {
+        font-size: 40px;
+        padding-top: 90px;
+        padding-left: 10%;
+    }
+
     /*Formulario*/
     form div {
         flex-direction: column;
@@ -488,6 +501,17 @@ footer {
     form div textarea {
         width: 100%;
         max-width: 100%;
+    }
+
+    .btn-enviar {
+        margin-left: 0%;
+        background-color: black;
+        color: white;
+        border: 1px solid;
+        padding: 10px 50px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.5s, color 0.5s;
     }
 
     /*Fin Formulario*/
