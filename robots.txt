@@ -1,0 +1,13 @@
+# Sitemap: https://www.airwolfclimatizacion.com/sitemap.xml
+
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.backup.*
+Allow: /
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Sitemaps
+Sitemap: https://www.airwolfclimatizacion.com/sitemap.xml

@@ -1,0 +1,29 @@
+{
+  "name": "Air Wolf Climatización",
+  "short_name": "AirWolf",
+  "description": "Expertos en instalación, mantenimiento y reparación de aire acondicionado en Chile",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/img/logo-color.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/logo-color.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "utilities"],
+  "lang": "es-CL",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

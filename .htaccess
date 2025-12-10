@@ -1,0 +1,213 @@
+# ============================================
+# AIR WOLF CLIMATIZACIÓN - .htaccess
+# Optimizaciones de servidor Apache
+# ============================================
+
+# Habilitar mod_rewrite
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Forzar HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Forzar www (o quitar www según preferencia)
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ============================================
+# COMPRESIÓN GZIP
+# ============================================
+<IfModule mod_deflate.c>
+    # Comprimir HTML, CSS, JavaScript, Text, XML y fuentes
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+    AddOutputFilterByType DEFLATE application/x-font
+    AddOutputFilterByType DEFLATE application/x-font-opentype
+    AddOutputFilterByType DEFLATE application/x-font-otf
+    AddOutputFilterByType DEFLATE application/x-font-truetype
+    AddOutputFilterByType DEFLATE application/x-font-ttf
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE font/opentype
+    AddOutputFilterByType DEFLATE font/otf
+    AddOutputFilterByType DEFLATE font/ttf
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE image/x-icon
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/xml
+    
+    # Remover browser bugs
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# ============================================
+# CACHÉ DEL NAVEGADOR
+# ============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Imágenes
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Video
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType video/mpeg "access plus 1 year"
+    
+    # CSS y JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    
+    # Fuentes
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType application/x-font-woff "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    
+    # HTML
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # Data
+    ExpiresByType application/json "access plus 0 seconds"
+    ExpiresByType application/xml "access plus 0 seconds"
+    ExpiresByType text/xml "access plus 0 seconds"
+    
+    # Manifest files
+    ExpiresByType application/manifest+json "access plus 1 week"
+    
+    # Default
+    ExpiresDefault "access plus 1 month"
+</IfModule>
+
+# ============================================
+# HEADERS DE SEGURIDAD
+# ============================================
+<IfModule mod_headers.c>
+    # X-Frame-Options
+    Header set X-Frame-Options "SAMEORIGIN"
+    
+    # X-XSS-Protection
+    Header set X-XSS-Protection "1; mode=block"
+    
+    # X-Content-Type-Options
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Referrer Policy
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Content Security Policy (ajustar según necesidad)
+    # Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline';"
+    
+    # Feature Policy
+    Header set Feature-Policy "geolocation 'self'; microphone 'none'; camera 'none'"
+    
+    # Remove Server signature
+    Header unset Server
+    Header unset X-Powered-By
+</IfModule>
+
+# ============================================
+# PROTECCIÓN DE ARCHIVOS
+# ============================================
+# Proteger archivos sensibles
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak|backup)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# ============================================
+# CHARSET UTF-8
+# ============================================
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+
+# ============================================
+# MIME TYPES
+# ============================================
+<IfModule mod_mime.c>
+    # JavaScript
+    AddType application/javascript js jsonp
+    AddType application/json json
+    
+    # Audio
+    AddType audio/mp4 m4a f4a f4b
+    AddType audio/ogg oga ogg
+    
+    # Video
+    AddType video/mp4 mp4 m4v f4v f4p
+    AddType video/ogg ogv
+    AddType video/webm webm
+    AddType video/x-flv flv
+    
+    # SVG
+    AddType image/svg+xml svg svgz
+    AddEncoding gzip svgz
+    
+    # Webfonts
+    AddType application/font-woff woff
+    AddType application/font-woff2 woff2
+    AddType application/vnd.ms-fontobject eot
+    AddType application/x-font-ttf ttf ttc
+    AddType font/opentype otf
+    
+    # Otros
+    AddType application/octet-stream safariextz
+    AddType application/x-chrome-extension crx
+    AddType application/x-opera-extension oex
+    AddType application/x-xpinstall xpi
+    AddType application/x-web-app-manifest+json webapp
+    AddType text/cache-manifest appcache manifest
+    AddType text/x-vcard vcf
+</IfModule>
+
+# ============================================
+# OPTIMIZACIÓN
+# ============================================
+# Desactivar ETags
+<IfModule mod_headers.c>
+    Header unset ETag
+</IfModule>
+FileETag None
+
+# Prevenir acceso a directorios
+Options -Indexes
+
+# Seguir enlaces simbólicos
+Options +FollowSymLinks
+
+# ============================================
+# PÁGINAS DE ERROR PERSONALIZADAS
+# ============================================
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
+
+# ============================================
+# REDIRECCIONES
+# ============================================
+# Ejemplo de redirecciones si migras de otra estructura
+# Redirect 301 /old-page.html /new-page.html
+
+# ============================================
+# LÍMITES DE RECURSOS
+# ============================================
+# Aumentar límites (ajustar según servidor)
+# php_value upload_max_filesize 64M
+# php_value post_max_size 64M
+# php_value max_execution_time 300
+# php_value max_input_time 300

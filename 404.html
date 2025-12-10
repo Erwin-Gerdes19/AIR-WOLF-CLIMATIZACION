@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>404 - Página no encontrada | Air Wolf Climatización</title>
+    <link rel="icon" href="img/logo-color.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 150px;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #fff;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            background-color: #000;
+            color: #fff;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .logo img {
+            max-width: 200px;
+            height: auto;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .error-code {
+                font-size: 100px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="logo">
+            <img src="img/logo-negativo.png" alt="Air Wolf Climatización" onerror="this.style.display='none'">
+        </div>
+        <div class="error-code">404</div>
+        <h1>¡Oops! Página no encontrada</h1>
+        <p>Lo sentimos, la página que estás buscando no existe o ha sido movida. Pero no te preocupes, puedes volver a nuestra página principal y encontrar todo lo que necesitas sobre nuestros servicios de climatización.</p>
+        <a href="/" class="btn">Volver al Inicio</a>
+    </div>
+</body>
+</html>
